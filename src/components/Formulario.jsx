@@ -4,22 +4,21 @@ import useCotizador from '../hooks/useCotizador'
 
 const Formulario = () => {
 
-    const {modal,setModal} = useCotizador()
-    console.log(modal)
+    const {datos,handleChangeDatos} = useCotizador()
+    
   return (
     <>
 
-    <button
-    onClick={()=>setModal(true)}>
-        Cambiar Context
-    </button>
+    
     <form>
         <div className="my-5">
             <label className="block mb-3 font-bold text-gray-400 uppercase">
                 Marca
             </label>
             <select name="marca" className="w-full p-3 bg-white border
-            border-gray-200">
+            border-gray-200"
+            value={datos.marca}
+            onChange={e => handleChangeDatos(e)}>
                 <option value="">--Selecciona Marca--</option>
                 {
                     
@@ -41,8 +40,10 @@ const Formulario = () => {
             <label className="block mb-3 font-bold text-gray-400 uppercase">
                 Año
             </label>
-            <select name="marca" className="w-full p-3 bg-white border
-            border-gray-200">
+            <select name="year" className="w-full p-3 bg-white border
+            border-gray-200"
+            value={datos.year}
+            onChange={e => handleChangeDatos(e)}>
                 <option value="">--Selecciona Año--</option>
                 {
                     
@@ -73,7 +74,8 @@ const Formulario = () => {
                         </label>
                         <input type="radio"
                         name='plan'
-                        value={plan.id} />
+                        value={plan.id}
+                        onChange={e => handleChangeDatos(e)} />
 
                     </Fragment>
                 ))}
