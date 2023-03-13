@@ -1,8 +1,18 @@
 import { marcas,years,planes} from '../constants'
-import { Fragment } from 'react'
+import { Fragment, } from 'react'
+import useCotizador from '../hooks/useCotizador'
+
 const Formulario = () => {
+
+    const {modal,setModal} = useCotizador()
+    console.log(modal)
   return (
     <>
+
+    <button
+    onClick={()=>setModal(true)}>
+        Cambiar Context
+    </button>
     <form>
         <div className="my-5">
             <label className="block mb-3 font-bold text-gray-400 uppercase">
